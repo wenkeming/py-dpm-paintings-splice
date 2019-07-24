@@ -1,12 +1,15 @@
 from PIL import Image
 import os, sys, glob
 
+Image.MAX_IMAGE_PIXELS = None
+
 name = input('请输入图片名称：')
-tmpImage = Image.new('RGB', (30000, 2000))
 folders = glob.glob(pathname='./images/*')
 files = glob.glob(pathname='./images/0/*.jpg')
 folderNum = len(folders)
 fileNum = len(files)
+
+tmpImage = Image.new('RGB', (fileNum * 256, folderNum * 256))
 
 def main():
     widthArr = []
